@@ -15,6 +15,10 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @GetMapping("/all")
+    public List<Book> allBooks() {
+        return bookService.findAllBook();
+    }
     @PostMapping
     public Book registerBook(@RequestBody Book book) {
         return bookService.registerBook(book);
@@ -25,8 +29,8 @@ public class BookController {
         bookService.deleteBook(id);
     }
 
-    @GetMapping
-    public List<Book> searchBooks(@RequestParam String title) {
+    @GetMapping("/search")
+    public List<Book> searchBooks(@RequestParam(name = "title") String title) {
         return bookService.searchBooks(title);
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.example.book.entity.Book;
 
@@ -15,5 +16,5 @@ public interface BookRepository extends CrudRepository<Book, Integer>{
   List<Book> findAllBook();
 
   @Query(value = "SELECT * FROM book WHERE title LIKE CONCAT('%', :title, '%')", nativeQuery = true)
-  List<Book> findByTitleContaining(String title);
+  List<Book> findByTitleContaining(@Param("title") String title);
 }
