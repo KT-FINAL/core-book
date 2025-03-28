@@ -13,11 +13,12 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookDTO {
-    private int id;
-    private String userId;
+    private Long id;
+    private Long userId;
     private String title;
     private String author;
     private Long createdAt;
     private Long updatedAt;
-    private Long status;
+    private String memo;
+    private String publish;
 }

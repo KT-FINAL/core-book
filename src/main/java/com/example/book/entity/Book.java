@@ -25,10 +25,10 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "user_id", nullable = false)
-    private String userId;
+    private Long userId;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -42,8 +42,11 @@ public class Book {
     @Column(name = "updated_at")
     private Long updatedAt;
 
-    @Column(name = "status")
-    private Long status;
+    @Column(name = "memo")
+    private String memo;
+
+    @Column(name = "publish")
+    private String publish;
 
     @PrePersist
     protected void onCreate() {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.example.book.entity.Book;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, Integer>{
+public interface BookRepository extends CrudRepository<Book, Long>{
 
 
   @Query(value = "SELECT * FROM book", nativeQuery = true)

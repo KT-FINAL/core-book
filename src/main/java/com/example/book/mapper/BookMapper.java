@@ -18,7 +18,8 @@ public class BookMapper {
             book.getAuthor(),
             book.getCreatedAt(),
             book.getUpdatedAt(),
-            book.getStatus()
+            book.getMemo(),
+            book.getPublish()
         );
     }
 
@@ -34,7 +35,8 @@ public class BookMapper {
             bookDTO.getAuthor(),
             bookDTO.getCreatedAt(),
             bookDTO.getUpdatedAt(),
-            bookDTO.getStatus()
+            bookDTO.getMemo(),
+            bookDTO.getPublish()
         );
     }
 }
