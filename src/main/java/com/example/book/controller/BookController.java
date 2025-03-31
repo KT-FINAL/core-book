@@ -33,6 +33,11 @@ public class BookController {
     public List<Book> searchBooks(@RequestParam(name = "title") String title) {
         return bookService.searchBooks(title);
     }
+
+    @GetMapping("/user")
+    public List<Book> searchBooksByUser(@RequestParam(name = "user_id") String userId) {
+        return bookService.searchBooks(userId);
+    }
 }
 // package com.example.book.controller;
 

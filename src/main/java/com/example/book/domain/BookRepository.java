@@ -17,4 +17,8 @@ public interface BookRepository extends CrudRepository<Book, Long>{
 
   @Query(value = "SELECT * FROM book WHERE title LIKE CONCAT('%', :title, '%')", nativeQuery = true)
   List<Book> findByTitleContaining(@Param("title") String title);
+
+  @Query(value = "SELECT * FROM book WHERE user_id LIKE CONCAT('%', :user_id, '%')", nativeQuery = true)
+  List<Book> findByUserId(@Param("user_id") String userId);
+  
 }
