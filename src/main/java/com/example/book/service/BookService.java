@@ -20,10 +20,10 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
-    public List<Book> searchBooks(String title) {
-        return bookRepository.findByTitleContaining(title);
+    public List<Book> searchBooks(String title, Long userId) {
+        return bookRepository.findByTitleId(title, userId);
     }
-    public List<Book> searchBooksByUser(String userId) {
+    public List<Book> searchBooksByUser(Long userId) {
         return bookRepository.findByUserId(userId);
     }
     public List<Book> findAllBook() {

@@ -29,14 +29,14 @@ public class BookController {
         bookService.deleteBook(id);
     }
 
-    @GetMapping("/search")
-    public List<Book> searchBooks(@RequestParam(name = "title") String title) {
-        return bookService.searchBooks(title);
+    @GetMapping("/user/search")
+    public List<Book> searchBooks(@RequestParam(name = "title") String title,@RequestParam(name = "user_id") Long userId) {
+        return bookService.searchBooks(title, userId);
     }
 
     @GetMapping("/user")
-    public List<Book> searchBooksByUser(@RequestParam(name = "user_id") String userId) {
-        return bookService.searchBooks(userId);
+    public List<Book> searchBooksByUser(@RequestParam(name = "user_id") Long userId) {
+        return bookService.searchBooksByUser(userId);
     }
 }
 // package com.example.book.controller;
