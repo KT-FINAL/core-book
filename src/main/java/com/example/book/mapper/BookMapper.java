@@ -1,5 +1,6 @@
 package com.example.book.mapper;
 
+import com.example.book.entity.AllBook;
 import com.example.book.entity.Book;
 import com.example.book.dto.BookDTO;
 
@@ -11,15 +12,11 @@ public class BookMapper {
         if (book == null) {
             return null;
         }
+        Long allBookId = book.getAllBook() != null ? book.getAllBook().getId() : null;
         return new BookDTO(
             book.getId(),
             book.getUserId(),
-            book.getTitle(),
-            book.getAuthor(),
-            book.getCreatedAt(),
-            book.getUpdatedAt(),
-            book.getMemo(),
-            book.getPublish()
+            allBookId
         );
     }
 
@@ -28,15 +25,14 @@ public class BookMapper {
         if (bookDTO == null) {
             return null;
         }
-        return new Book(
-            bookDTO.getId(),
-            bookDTO.getUserId(),
-            bookDTO.getTitle(),
-            bookDTO.getAuthor(),
-            bookDTO.getCreatedAt(),
-            bookDTO.getUpdatedAt(),
-            bookDTO.getMemo(),
-            bookDTO.getPublish()
-        );
+        Book book = new Book();
+        book.setId(bookDTO.getId());
+        book.setUserId(bookDTO.getUserId());
+        if(bookDTO.getAllBookId() != null) {
+            AllBook allBook = new AllBook();
+            allBook.setId(bookDTO.getAllBookId());
+            book.setAllBook(allBook);
+        }
+        return book;
     }
 }

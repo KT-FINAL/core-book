@@ -1,10 +1,15 @@
 package com.example.book.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -30,34 +35,8 @@ public class Book {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "title", nullable = false)
-    private String title;
-
-    @Column(name = "author", nullable = false)
-    private String author;
-
-    @Column(name = "created_at")
-    private Long createdAt;
-
-    @Column(name = "updated_at")
-    private Long updatedAt;
-
-    @Column(name = "memo")
-    private String memo;
-
-    @Column(name = "publish")
-    private String publish;
-
-    @PrePersist
-    protected void onCreate() {
-        long currentTime = System.currentTimeMillis();
-        createdAt = currentTime;
-        updatedAt = currentTime;
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = System.currentTimeMillis();
-    }
-
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "allbook_id")
+    @JsonManagedReference
+    private AllBook allBook; 
 }

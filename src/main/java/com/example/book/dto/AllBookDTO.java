@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-
 import lombok.AllArgsConstructor;
 
 
@@ -14,8 +12,12 @@ import lombok.AllArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookDTO {
+public class AllBookDTO {
     private Long id;
-    private Long userId;
-    private Long allBookId;
+    private String title;
+    private String author;
+    private Long createdAt;
+    private Long updatedAt;
+    private String memo;
+    private String publish;
 }
