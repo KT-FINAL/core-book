@@ -25,12 +25,9 @@ public class BookService {
     private JwtUtil jwtUtil;
 
     @Transactional 
-    public Book registerBook(String jwtToken, Book book) {
-        TokenInfo tokenInfo = jwtUtil.extractTokenInfo(jwtToken);
-        book.setUserId(tokenInfo.getUserId());
+    public Book registerBook(Book book) {
         return bookRepository.save(book);
     }
-
 
     @Transactional 
     public void deleteBook(String jwtToken, Long id) {
