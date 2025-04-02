@@ -1,5 +1,8 @@
 package com.example.book.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
@@ -8,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -51,9 +55,9 @@ public class AllBook {
     @Column(name = "updated_at")
     private Long updatedAt;
 
-    @OneToOne(mappedBy = "allBook", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "allBook", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
-    private Book book;
+    private List<Book> books = new ArrayList<>();
    
     
     @PrePersist

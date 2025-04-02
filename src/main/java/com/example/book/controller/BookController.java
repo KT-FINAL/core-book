@@ -11,6 +11,7 @@ import com.example.book.util.JwtUtil;
 import jakarta.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,14 +29,15 @@ public class BookController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @PostMapping("/register")
-    public Book registerBook(@RequestHeader("Authorization") String token, @RequestBody Book book) {
+    @PostMapping(value = "/register", consumes = "application/json")
+    public ResponseEntity<Book> registerBook(@RequestHeader("Authorization") String token, @RequestBody Book book) {
         if (book.getAllBook() != null && book.getAllBook().getId() != null) {
            AllBook managedAllBook = allBookRepository.findById(book.getAllBook().getId())
                .orElseThrow(() -> new EntityNotFoundException("AllBook not found"));
            book.setAllBook(managedAllBook);
         }
-        return bookService.registerBook(token, book);
+        Book registeredBook = bookService.registerBook(token, book);
+        return ResponseEntity.ok(registeredBook);
     }
 
     @DeleteMapping("/{id}")
