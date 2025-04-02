@@ -13,11 +13,7 @@ import com.example.book.entity.Book;
 public interface BookRepository extends CrudRepository<Book, Long>{
 
 
-  // @Query(value = "SELECT * FROM book", nativeQuery = true)
-  // List<Book> findAllBook();
-
-  // @Query(value = "SELECT * FROM book WHERE title LIKE CONCAT('%', :title, '%') AND user_id =:userId", nativeQuery = true)
-  // List<Book> findByTitleId(@Param("title") String title, @Param("userId") Long userId);
+ 
   @Query(value = "SELECT b.id, b.user_id, b.allbook_id, a.title, a.author, a.book_url, a.cover_url, a.publish, a.created_at, a.updated_at " +
                "FROM allbook a " +
                "JOIN book b ON a.id = b.allBook_id " +

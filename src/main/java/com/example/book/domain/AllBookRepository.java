@@ -14,8 +14,4 @@ public interface AllBookRepository extends CrudRepository<AllBook, Long>{
   @Query(value = "SELECT * FROM allbook", nativeQuery = true)
   List<AllBook> findAllBook();
 
-  // @Query(value = "SELECT * FROM book WHERE title LIKE CONCAT('%', :title, '%') AND user_id =:userId", nativeQuery = true)
-  // List<Book> findByTitleId(@Param("title") String title, @Param("userId") Long userId);
-
-  
 }
