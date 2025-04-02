@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/book")
+@RequestMapping("/api/books")
 public class BookController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class BookController {
     // public List<Book> allBooks() {
     //     return bookService.findAllBook();
     // }
-    @PostMapping
+    @PostMapping("/register")
     public Book registerBook(@RequestHeader("Authorization") String token, @RequestBody Book book) {
         if (book.getAllBook() != null && book.getAllBook().getId() != null) {
            AllBook managedAllBook = allBookRepository.findById(book.getAllBook().getId())

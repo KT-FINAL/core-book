@@ -35,7 +35,7 @@ public class Book {
     @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name = "allbook_id")
     @JsonManagedReference
     private AllBook allBook; 

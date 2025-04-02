@@ -25,8 +25,4 @@ public class AllBookController {
         return allbookService.registerBook(book);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable(name = "id") Long id) {
-        allbookService.deleteBook(id);
-    }
 }
