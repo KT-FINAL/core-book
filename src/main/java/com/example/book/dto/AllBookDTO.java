@@ -16,8 +16,9 @@ public class AllBookDTO {
     private Long id;
     private String title;
     private String author;
+    private String publish;
+    private String bookUrl;
+    private String coverUrl;
     private Long createdAt;
     private Long updatedAt;
-    private String memo;
-    private String publish;
 }

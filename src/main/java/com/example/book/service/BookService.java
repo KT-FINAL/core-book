@@ -23,6 +23,7 @@ public class BookService {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Transactional 
     public Book registerBook(String jwtToken, Book book) {
         TokenInfo tokenInfo = jwtUtil.extractTokenInfo(jwtToken);
         book.setUserId(tokenInfo.getUserId());

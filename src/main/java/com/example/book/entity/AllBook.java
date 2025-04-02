@@ -37,19 +37,22 @@ public class AllBook {
     @Column(name = "author", nullable = false)
     private String author;
 
+    @Column(name = "publish")
+    private String publish;
+
+    @Column(name = "book_url")
+    private String bookUrl;
+
+    @Column(name = "cover_url")
+    private String coverUrl;
+
     @Column(name = "created_at")
     private Long createdAt;
 
     @Column(name = "updated_at")
     private Long updatedAt;
 
-    @Column(name = "memo")
-    private String memo;
-
-    @Column(name = "publish")
-    private String publish;
-
-    @OneToOne(mappedBy = "allBook", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "allBook", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     private Book book;
    

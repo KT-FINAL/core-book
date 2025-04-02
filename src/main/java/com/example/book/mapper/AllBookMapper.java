@@ -14,10 +14,11 @@ public class AllBookMapper {
             allbook.getId(),
             allbook.getTitle(),
             allbook.getAuthor(),
+            allbook.getBookUrl(),
+            allbook.getCoverUrl(),
+            allbook.getPublish(),
             allbook.getCreatedAt(),
-            allbook.getUpdatedAt(),
-            allbook.getMemo(),
-            allbook.getPublish()
+            allbook.getUpdatedAt()
         );
     }
 
@@ -30,10 +31,11 @@ public class AllBookMapper {
             allbookDTO.getId(),
             allbookDTO.getTitle(),
             allbookDTO.getAuthor(),
+            allbookDTO.getBookUrl(),
+            allbookDTO.getCoverUrl(),
+            allbookDTO.getPublish(),
             allbookDTO.getCreatedAt(),
             allbookDTO.getUpdatedAt(),
-            allbookDTO.getMemo(),
-            allbookDTO.getPublish(),
             null
         );
     }
